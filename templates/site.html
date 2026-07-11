@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{BUSINESS_NAME}} — {{TAGLINE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent: {{ACCENT}};
+    --ink: #17181c;
+    --paper: #fbfbf9;
+    --muted: #6b6e76;
+    --line: #e6e5e0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .rise{transition:none!important;opacity:1!important;transform:none!important}}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.05;font-weight:700;letter-spacing:-0.02em}
+
+  /* Nav */
+  nav{display:flex;justify-content:space-between;align-items:center;padding:28px 0}
+  .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.15rem}
+  .logo::after{content:"";display:inline-block;width:.55em;height:.55em;background:var(--accent);border-radius:50%;margin-left:.3em;vertical-align:baseline}
+  nav a.cta{background:var(--ink);color:var(--paper);padding:11px 22px;border-radius:100px;text-decoration:none;font-weight:600;font-size:.92rem;transition:background .2s}
+  nav a.cta:hover,nav a.cta:focus-visible{background:var(--accent)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+  /* Hero */
+  header{padding:84px 0 96px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+  h1{font-size:clamp(2.6rem,6.5vw,4.6rem);max-width:14ch}
+  .herosub{margin-top:26px;font-size:1.2rem;color:var(--muted);max-width:46ch}
+  .heroactions{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:15px 30px;border-radius:100px;text-decoration:none;font-weight:600;transition:transform .15s, box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent)}
+  .ghost{color:var(--ink);text-decoration:none;font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:2px}
+
+  /* Problem */
+  .problem{padding:88px 0;display:grid;grid-template-columns:1fr 1.4fr;gap:56px;border-bottom:1px solid var(--line)}
+  .problem h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+  .problem p{color:var(--muted);font-size:1.08rem}
+
+  /* Packages — the signature: a ledger, not cards */
+  .packages{padding:88px 0;border-bottom:1px solid var(--line)}
+  .packages h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:10px}
+  .ledger{margin-top:44px}
+  .row{display:grid;grid-template-columns:2fr 1fr 2.6fr 1fr;gap:20px;align-items:baseline;padding:30px 0;border-top:1px solid var(--line)}
+  .row:last-child{border-bottom:1px solid var(--line)}
+  .row .pkgname{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem}
+  .row .price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.35rem;color:var(--accent);white-space:nowrap}
+  .row .deliv{color:var(--muted)}
+  .row .meta{font-size:.85rem;color:var(--muted)}
+  .row .meta b{display:block;color:var(--ink);font-weight:600}
+  .bestfor{font-size:.85rem;margin-top:6px;color:var(--muted)}
+
+  /* Process */
+  .process{padding:88px 0;border-bottom:1px solid var(--line)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:40px}
+  .step{border-left:3px solid var(--accent);padding-left:20px;font-weight:500}
+  .step small{display:block;color:var(--muted);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;margin-bottom:8px}
+
+  /* About */
+  .about{padding:88px 0;display:grid;grid-template-columns:1.4fr 1fr;gap:56px;border-bottom:1px solid var(--line)}
+  .about h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:20px}
+  .about p{color:var(--muted);font-size:1.08rem;max-width:56ch}
+
+  /* Contact */
+  .contact{padding:96px 0;text-align:center}
+  .contact h2{font-size:clamp(1.9rem,4vw,2.8rem)}
+  .contact p{color:var(--muted);margin:18px auto 34px;max-width:44ch}
+  footer{padding:34px 0;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+
+  .rise{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .rise.in{opacity:1;transform:none}
+
+  @media(max-width:760px){
+    .problem,.about{grid-template-columns:1fr;gap:24px}
+    .steps{grid-template-columns:1fr}
+    .row{grid-template-columns:1fr 1fr;row-gap:8px}
+    .row .deliv{grid-column:1/-1}
+    header{padding:56px 0 64px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <span class="logo">{{BUSINESS_NAME}}</span>
+    <a class="cta" href="#contact">{{CTA_PRIMARY}}</a>
+  </nav>
+
+  <header>
+    <p class="kicker">{{TAGLINE}}</p>
+    <h1>{{HERO_HEADLINE}}</h1>
+    <p class="herosub">{{HERO_SUB}}</p>
+    <div class="heroactions">
+      <a class="btn" href="#contact">{{CTA_PRIMARY}}</a>
+      <a class="ghost" href="#packages">See packages</a>
+    </div>
+  </header>
+
+  <section class="problem rise">
+    <h2>{{PROBLEM_HEADING}}</h2>
+    <p>{{PROBLEM_BODY}}</p>
+  </section>
+
+  <section class="packages rise" id="packages">
+    <h2>Ways to work together</h2>
+    <div class="ledger">
+      <div class="row">
+        <div><span class="pkgname">{{PKG1_NAME}}</span><p class="bestfor">{{PKG1_BESTFOR}}</p></div>
+        <span class="price">{{PKG1_PRICE}}</span>
+        <p class="deliv">{{PKG1_DELIVERABLE}}</p>
+        <p class="meta"><b>{{PKG1_DURATION}}</b></p>
+      </div>
+      <div class="row">
+        <div><span class="pkgname">{{PKG2_NAME}}</span><p class="bestfor">{{PKG2_BESTFOR}}</p></div>
+        <span class="price">{{PKG2_PRICE}}</span>
+        <p class="deliv">{{PKG2_DELIVERABLE}}</p>
+        <p class="meta"><b>{{PKG2_DURATION}}</b></p>
+      </div>
+      <div class="row">
+        <div><span class="pkgname">{{PKG3_NAME}}</span><p class="bestfor">{{PKG3_BESTFOR}}</p></div>
+        <span class="price">{{PKG3_PRICE}}</span>
+        <p class="deliv">{{PKG3_DELIVERABLE}}</p>
+        <p class="meta"><b>{{PKG3_DURATION}}</b></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="process rise">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><small>Step 1</small>{{PROCESS_STEP1}}</div>
+      <div class="step"><small>Step 2</small>{{PROCESS_STEP2}}</div>
+      <div class="step"><small>Step 3</small>{{PROCESS_STEP3}}</div>
+    </div>
+  </section>
+
+  <section class="about rise">
+    <div>
+      <h2>{{ABOUT_HEADING}}</h2>
+      <p>{{ABOUT_BODY}}</p>
+    </div>
+  </section>
+
+  <section class="contact rise" id="contact">
+    <h2>Start the conversation</h2>
+    <p>{{CONTACT_LINE}}</p>
+    <a class="btn" href="mailto:{{EMAIL}}">{{CTA_PRIMARY}}</a>
+  </section>
+
+  <footer>{{FOOTER_LINE}}</footer>
+</div>
+<script>
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rise').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

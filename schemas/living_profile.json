@@ -1,0 +1,35 @@
+{
+  "$comment": "Living Profile — the agent memory. Stored as one JSON blob in SQLite, updated after every stage and every user choice, injected into EVERY Claude call inside <user_context>. SQLite DDL at bottom.",
+  "identity": {
+    "name": "string",
+    "profile_summary": "career_arc from stage 1, refreshed if re-uploaded"
+  },
+  "strengths": {
+    "riasec": {"R": 0, "I": 0, "A": 0, "S": 0, "E": 0, "C": 0},
+    "career_anchor": "string",
+    "hidden_strengths": [],
+    "flow_sources": [],
+    "energy_drains": []
+  },
+  "preferences": {
+    "autonomy_vs_income": "autonomy_first|balanced|income_first",
+    "stated_constraints": ["e.g. 'no weekend work', 'wants to stay in fintech'"]
+  },
+  "business": {
+    "chosen_direction": "null until stage 3 choice",
+    "rejected_directions": [{"title": "", "reason_rejected": "captured from user or inferred"}],
+    "verdict": "green|amber|red|null",
+    "packages_agreed": [],
+    "pricing_edits": [{"was": 0, "now": 0, "user_reason": ""}],
+    "site_url": null
+  },
+  "decision_journal_note": "Decisions live in their own table (below) so /api/ask can cite them chronologically.",
+
+  "sqlite_ddl": [
+    "CREATE TABLE IF NOT EXISTS profile (id INTEGER PRIMARY KEY CHECK (id=1), data TEXT NOT NULL, updated_at TEXT NOT NULL);",
+    "CREATE TABLE IF NOT EXISTS decisions (id INTEGER PRIMARY KEY AUTOINCREMENT, ts TEXT NOT NULL, stage TEXT NOT NULL, choice TEXT NOT NULL, rationale TEXT);",
+    "CREATE TABLE IF NOT EXISTS cache (input_hash TEXT PRIMARY KEY, stage TEXT NOT NULL, output TEXT NOT NULL, created_at TEXT NOT NULL);"
+  ],
+
+  "ask_endpoint_prompt": "SYSTEM for POST /api/ask: You are this user's OneLaunch partner. You have their living profile and decision journal below. Answer their question as an advisor who has been with them since day one: cite their OWN past decisions and stated preferences by name when relevant ('You told me autonomy matters more than income, and you priced the entry package at S$3,500 — so...'). Be direct, 120 words max, no flattery. If their question conflicts with a recorded preference, surface the tension instead of papering over it. <user_context>{{living_profile_json}}</user_context> <decision_journal>{{decisions_rows}}</decision_journal>"
+}

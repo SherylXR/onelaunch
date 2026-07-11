@@ -1,0 +1,33 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Database
+*.db
+*.sqlite3
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
+
+# Deploy
+.vercel/
+
+# Cache (stage outputs cached by SHA256 — regenerable, keep out of git)
+.cache/
+
+# OS / editor
+.claude/settings.local.json
+.DS_Store
+.idea/
+.vscode/
