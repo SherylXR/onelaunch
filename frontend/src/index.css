@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Design tokens — frontend/UI_SPEC.md */
+@theme {
+  --color-paper: #fafaf8;
+  --color-ink: #16181d;
+  --color-accent: #2f5af5;
+  --color-line: #e7e6e2;
+  --color-muted: #6e7178;
+  --color-amber: #b45309;
+
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+body {
+  @apply bg-paper text-ink font-body antialiased;
+}
