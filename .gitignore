@@ -34,3 +34,9 @@ dist/
 
 # Office temp files
 ~$*
+
+# Local design assets & decks (not for the public repo)
+design/
+sarah_*.png
+sarach_*.png
+*.pptx
