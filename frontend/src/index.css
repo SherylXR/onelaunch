@@ -1,13 +1,36 @@
 @import "tailwindcss";
 
-/* Design tokens — frontend/UI_SPEC.md */
+/* Self-hosted fonts (variable woff2) — no Google Fonts network dependency:
+   keeps the app working on flaky venue wifi and makes the Strength Map PNG
+   export deterministic (html-to-image inlines same-origin fonts reliably). */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("./assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 700 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter.woff2") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+/* Design tokens — dark system per target mock (2026-07-12 restyle).
+   Token NAMES kept from UI_SPEC so components stay unchanged; values now dark:
+   paper = page bg, panel = card bg, ink = primary text, line = hairline,
+   accent/bright = glowing blue, amber = human-turn gold. */
 @theme {
-  --color-paper: #fafaf8;
-  --color-ink: #16181d;
-  --color-accent: #2f5af5;
-  --color-line: #e7e6e2;
-  --color-muted: #6e7178;
-  --color-amber: #b45309;
+  --color-paper: #0a0e1a;
+  --color-panel: #0f1626;
+  --color-panel2: #141d33;
+  --color-ink: #eaf0fc;
+  --color-accent: #3b82f6;
+  --color-bright: #60a5fa;
+  --color-line: #1d2a44;
+  --color-muted: #8b96ae;
+  --color-amber: #f0a32f;
+  --color-mint: #34d399;
 
   --font-display: "Bricolage Grotesque", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -15,4 +38,38 @@
 
 body {
   @apply bg-paper text-ink font-body antialiased;
+}
+
+/* Glowing radar polygon (target mock). Per-instance color via --radar-glow;
+   pass transparent to disable (Gallery theme). */
+.radar-glow .recharts-radar-polygon {
+  filter: drop-shadow(0 0 7px var(--radar-glow, rgba(96, 165, 250, 0.65)));
+}
+/* Axis labels may extend past the chart box — never clip them. */
+.radar-glow svg {
+  overflow: visible;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.4);
+}
+
+/* Landing hero: one orchestrated motion — a slow-pulsing radar outline */
+@keyframes radar-pulse {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.24; transform: scale(1.05); }
+}
+.radar-pulse {
+  animation: radar-pulse 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Equalizer bars in the "Listening to your story…" chip */
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
+.wave-bar {
+  animation: wave 1.1s ease-in-out infinite;
+  transform-origin: center;
 }

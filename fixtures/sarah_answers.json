@@ -1,0 +1,40 @@
+{
+  "$comment": "Sarah's demo answers exactly as the UI produces them: single-select answers are the verbatim option texts (clicked on stage), free-text q2/q7 are the scripted lines from demo/sarah_discovery_script.md pasted verbatim — q7 is the pineapple-tart pivot. This is the demo-canonical set: the cached pipeline replays offline from real UI clicks. INPUTS FROZEN 2026-07-12 — changing any answer changes cache keys downstream.",
+  "answers": [
+    {
+      "id": "q1",
+      "question": "When the redundancy came through, what hit you hardest in that first moment of honesty?",
+      "answer": "Honestly? A quiet sense of relief — I'd been ready to do something different for a while"
+    },
+    {
+      "id": "q2",
+      "question": "At SwiftCart you were running warehouse ops, managing 40+ merchant relationships, coaching your team, and building SOPs — all at once. Which of those did you find yourself doing at 6pm without noticing the time had passed, and which did you put off until you had no choice?",
+      "answer": "The SOP work, every time. Someone brings me a messy half-broken process and I lose the evening turning it into a checklist a new hire could follow — that never felt like work. What I put off: anything where I was being measured on someone else's KPI dashboard. The weekly merchant performance reports went out at the last possible hour, every week."
+    },
+    {
+      "id": "q3",
+      "question": "You've promoted 4 associates to supervisor and built an SOP library that cut ramp-up time in half. When you picture doing that kind of work going forward, what's the version that actually excites you?",
+      "answer": "Going into a struggling operation, fixing the system, then leaving — the turnaround is the job"
+    },
+    {
+      "id": "q4",
+      "question": "A well-funded logistics scale-up offers you an Operations Manager role — good salary, real scope, but their processes are already set and your job is to execute, not redesign. Meanwhile a smaller e-commerce merchant offers you a fractional Head of Ops role at 60% of that salary, but you'd build the system from scratch. What do you do?",
+      "answer": "Take the fractional role — building from scratch is where I actually do my best work"
+    },
+    {
+      "id": "q5",
+      "question": "You consolidated 11 vendors down to 4 and saved S$180,000 — that required both analytical rigour and commercial negotiation. Which part of that project did you find most satisfying?",
+      "answer": "The implementation — getting the team to actually adopt the new supplier relationships"
+    },
+    {
+      "id": "q6",
+      "question": "Which of these would make you quietly miserable within 12 months, even if the pay was right?",
+      "answer": "Running operations where the processes are already mature and my job is to maintain, not improve"
+    },
+    {
+      "id": "q7",
+      "question": "Outside of your job description — what do colleagues, warehouse leads, or merchant contacts actually come to you for? The thing they message you about on a Saturday, or pull you aside for before a meeting officially starts.",
+      "answer": "Untangling messy processes — people bring me chaos and I turn it into a checklist. And outside work... every Chinese New Year I bake about 40 tins of pineapple tarts for family and friends. I run it like a production line — my nieces on pastry balls, me on jam, quality check before anything goes in a tin. I lose whole afternoons and it never feels like work."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "$comment": "Demo-persona constraints for stage 5, keyed by the stage-1 profile name (stable because stage 1 is cached per CV). 'pinned' fields are kept verbatim in the launch kit; 'notes_extra' is appended to the standing orchestrator note. Keeping this in data (not code) so brands don't drift between re-rolls and the cached demo path replays offline through the UI.",
+  "Sarah Lim Hui Ling": {
+    "pinned": {"brand.business_name": "Mise en Place Ops"},
+    "notes_extra": "Her origin story happens every Chinese New Year: name Chinese New Year explicitly in the origin sentence."
+  },
+  "Marcus Tan Wei Loong": {
+    "pinned": {"brand.business_name": "Groundwork Advisory"}
+  }
+}

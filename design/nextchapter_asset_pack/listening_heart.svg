@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#C57B1A" stop-opacity="0.58"/>
+      <stop offset="70%" stop-color="#8D4D0B" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#241506" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="stroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFE4A3"/>
+      <stop offset="100%" stop-color="#FFAD2F"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="64" cy="64" r="50" fill="url(#bg)" stroke="#D58A26" stroke-opacity="0.65" stroke-width="2"/>
+  <path d="M64 87
+           C52 77, 38 68, 38 52
+           C38 42, 45 35, 55 35
+           C61 35, 65 38, 68 43
+           C71 38, 75 35, 81 35
+           C91 35, 98 42, 98 52
+           C98 68, 82 78, 64 87Z"
+        fill="none" stroke="url(#stroke)" stroke-width="4.5"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+</svg>

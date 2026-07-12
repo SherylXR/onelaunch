@@ -7,17 +7,21 @@
     "sop_documentation_specialist": {"low": 600, "mid": 900, "high": 1300},
     "corporate_trainer_softskills": {"low": 1500, "mid": 2500, "high": 4000, "unit": "per day workshop"},
     "fractional_coo_sme": {"low": 3000, "mid": 5000, "high": 8000, "unit": "per month, 1-2 days/wk"},
-    "project_manager_contract": {"low": 700, "mid": 1000, "high": 1400}
+    "project_manager_contract": {"low": 700, "mid": 1000, "high": 1400},
+    "micro_fnb_ops_consultant": {"low": 500, "mid": 800, "high": 1200,
+      "note": "micro food businesses pay less per day than corporates but engagements are short and repeatable; often packaged fixed-price"}
   },
   "demand_signals": [
     "SME digitalization push continues; process-audit demand from 5-50 employee firms",
     "PMET retrenchment cohort itself is a growing market for career/ops services",
-    "Corporate training demand steady; SkillsFuture funding channels favor certified trainers"
+    "Corporate training demand steady; SkillsFuture funding channels favor certified trainers",
+    "Home-based F&B boom persists post-2020: large base of home-based sellers and hawker-adjacent micro brands; common pain points are costing/margin, production consistency at volume, and the step-up from home kitchen to SFA-licensed premises — almost no structured ops help marketed to this segment"
   ],
   "saturation_notes": {
     "generic_business_coaching": "very crowded",
     "ops_process_audit_for_smes": "moderately open — few solo specialists market this directly",
-    "sop_documentation": "open niche, low glamour, sticky retainers"
+    "sop_documentation": "open niche, low glamour, sticky retainers",
+    "ops_consulting_for_micro_fnb": "wide open — F&B business coaches exist for cafes/restaurants, but nobody markets production-systems and costing help to home-based and micro food businesses"
   },
   "utilization_assumptions": {"realistic_billable_days_per_month_year1": "6-10",
     "ramp_note": "months 1-3 typically near-zero revenue; first client via warm network in 60-90% of solo launches"}

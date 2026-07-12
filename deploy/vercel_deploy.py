@@ -15,11 +15,11 @@ import urllib.request
 
 VERCEL_API = "https://api.vercel.com"
 
-def _req(path: str, payload: dict) -> dict:
+def _req(path: str, payload: dict, method: str = "POST") -> dict:
     token = os.environ["VERCEL_TOKEN"]
     data = json.dumps(payload).encode()
     req = urllib.request.Request(
-        f"{VERCEL_API}{path}", data=data, method="POST",
+        f"{VERCEL_API}{path}", data=data, method=method,
         headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
     )
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -42,6 +42,13 @@ def deploy_site(html: str, project_slug: str) -> str:
     out = _req("/v13/deployments", payload)
     if "url" not in out:
         raise RuntimeError(f"Vercel deploy failed: {out}")
+    # Team-level Deployment Protection would gate the URL behind Vercel SSO —
+    # the QR-scan demo needs it public. Best-effort: a failure here still
+    # returns the URL.
+    try:
+        _req(f"/v9/projects/{slug}", {"ssoProtection": None}, method="PATCH")
+    except Exception:
+        pass
     return f"https://{out['url']}"
 
 def fill_template(template_path: str, tokens: dict) -> str:

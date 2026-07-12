@@ -1,0 +1,24 @@
+{
+  "riasec": {"R": 42, "I": 48, "A": 22, "S": 58, "E": 79, "C": 74},
+  "riasec_top2": ["E", "C"],
+  "career_anchor": "autonomy",
+  "anchor_evidence": "Chose 'running my own book of work, even if smaller' over a bigger corporate mandate, and said the WMS cutover was the last time he felt fully in charge of an outcome.",
+  "flow_sources": [
+    "untangling a messy operation and re-mapping the whole flow end-to-end",
+    "walking a new supervisor through the floor until the process finally clicks for them",
+    "preparing for a carrier negotiation — building the cost model and playing out counters"
+  ],
+  "energy_drains": [
+    "constant new-client hunting — cold outreach and always having to sell himself to strangers",
+    "producing status decks for stakeholders who never act on them"
+  ],
+  "hidden_strengths": [
+    {
+      "strength": "Developing juniors into confident supervisors — structured, patient teaching that sticks",
+      "why_hidden": "The CV frames it as operational output (a training curriculum, audit passes) rather than a personal capability; he doesn't think of teaching as a skill because it 'came with the job'.",
+      "evidence": "When asked when he last lost track of time at work, he described onboarding two new supervisors during the WMS migration — not the migration itself."
+    }
+  ],
+  "stated_vs_demonstrated_tension": "He says he wants out of big-company structure, but every story he lights up telling is about building structure — SOPs, curricula, audit regimes. The pull is toward owning the system he builds, not escaping systems.",
+  "autonomy_vs_income": "autonomy_first"
+}
